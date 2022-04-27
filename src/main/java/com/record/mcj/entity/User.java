@@ -1,27 +1,25 @@
 package com.record.mcj.entity;
 
-import com.google.common.base.Preconditions;
 import com.record.mcj.data.Address;
 import com.record.mcj.data.Role;
 import lombok.AccessLevel;
-import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.apache.logging.log4j.util.Strings;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.List;
 
-import static com.google.common.base.Preconditions.*;
+import static com.google.common.base.Preconditions.checkArgument;
 
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class User {
 
-    @Id @GeneratedValue
+    @Id
+    @GeneratedValue
     @Column(name = "user_id")
     private Long id;
 
@@ -45,9 +43,9 @@ public class User {
     private List<Board> boards;
 
     public User(String name, String email, String password, Address address, LocalDateTime birthday, Role role) {
-        checkArgument(Strings.isNotBlank(name) , "사용자 이름은 필수입니다.");
-        checkArgument(Strings.isNotBlank(email) , "이메일은 필수입니다.");
-        checkArgument(Strings.isNotBlank(password) , "패스워드는 필수입니다.");
+        checkArgument(Strings.isNotBlank(name), "사용자 이름은 필수입니다.");
+        checkArgument(Strings.isNotBlank(email), "이메일은 필수입니다.");
+        checkArgument(Strings.isNotBlank(password), "패스워드는 필수입니다.");
 
 
         this.joinDate = LocalDateTime.now();
