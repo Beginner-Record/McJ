@@ -5,8 +5,9 @@ import javax.persistence.*;
 @Entity
 public class Board {
 
-    @Id @GeneratedValue
-    @Column(name ="board_id")
+    @Id
+    @GeneratedValue
+    @Column(name = "board_id")
     Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
