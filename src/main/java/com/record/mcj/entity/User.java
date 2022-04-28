@@ -46,6 +46,7 @@ public class User {
         checkArgument(Strings.isNotBlank(name), "사용자 이름은 필수입니다.");
         checkArgument(Strings.isNotBlank(email), "이메일은 필수입니다.");
         checkArgument(Strings.isNotBlank(password), "패스워드는 필수입니다.");
+        checkArgument(birthday != null , "생년월일은 필수입니다.");
 
 
         this.joinDate = LocalDateTime.now();
@@ -56,4 +57,7 @@ public class User {
         this.birthday = birthday;
         this.role = role;
     }
+
+
+
 }
