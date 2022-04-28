@@ -1,7 +1,8 @@
-package com.record.mcj.entity;
+package com.record.mcj.entity.user;
 
 import com.record.mcj.data.Address;
 import com.record.mcj.data.Role;
+import com.record.mcj.entity.Board;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -42,11 +43,15 @@ public class User {
     @OneToMany(mappedBy = "user")
     private List<Board> boards;
 
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JoinColumn(name = "user_prifle_id")
+    private UserProfile userProfile;
+
     public User(String name, String email, String password, Address address, LocalDateTime birthday, Role role) {
         checkArgument(Strings.isNotBlank(name), "사용자 이름은 필수입니다.");
         checkArgument(Strings.isNotBlank(email), "이메일은 필수입니다.");
         checkArgument(Strings.isNotBlank(password), "패스워드는 필수입니다.");
-        checkArgument(birthday != null , "생년월일은 필수입니다.");
+        checkArgument(birthday != null, "생년월일은 필수입니다.");
 
 
         this.joinDate = LocalDateTime.now();
@@ -57,7 +62,6 @@ public class User {
         this.birthday = birthday;
         this.role = role;
     }
-
 
 
 }

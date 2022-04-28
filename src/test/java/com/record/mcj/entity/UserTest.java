@@ -2,6 +2,7 @@ package com.record.mcj.entity;
 
 import com.record.mcj.data.Address;
 import com.record.mcj.data.Role;
+import com.record.mcj.entity.user.User;
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
