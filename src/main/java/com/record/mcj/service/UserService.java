@@ -1,6 +1,6 @@
 package com.record.mcj.service;
 
-import com.record.mcj.entity.User;
+import com.record.mcj.entity.user.User;
 
 public interface UserService {
 

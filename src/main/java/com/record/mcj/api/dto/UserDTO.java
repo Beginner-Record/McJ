@@ -2,7 +2,7 @@ package com.record.mcj.api.dto;
 
 import com.record.mcj.data.Address;
 import com.record.mcj.data.Role;
-import com.record.mcj.entity.User;
+import com.record.mcj.entity.user.User;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -13,7 +13,7 @@ public class UserDTO {
 
     @Getter
     @AllArgsConstructor
-    public static class UserCreateRequest{
+    public static class UserCreateRequest {
 
         private String name;
 
@@ -25,7 +25,7 @@ public class UserDTO {
 
         private LocalDateTime birthday;
 
-        public User toEntity(){
+        public User toEntity() {
             return new User(name, email, password, address, birthday, Role.user);
         }
 
@@ -34,13 +34,13 @@ public class UserDTO {
 
     @Getter
     @AllArgsConstructor
-    public static class UserCreateResponse{
+    public static class UserCreateResponse {
         private UserCreateData user;
     }
 
     @Getter
     @AllArgsConstructor
-    public static class UserCreateData{
+    public static class UserCreateData {
 
         private String name;
 
@@ -55,7 +55,7 @@ public class UserDTO {
         private String role;
 
 
-        public UserCreateData(User user){
+        public UserCreateData(User user) {
             this.name = user.getName();
             this.email = user.getEmail();
             this.password = user.getPassword();

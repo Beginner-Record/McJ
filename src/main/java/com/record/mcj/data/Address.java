@@ -8,7 +8,8 @@ import javax.persistence.Embeddable;
 
 @Embeddable
 @NoArgsConstructor
-@Getter @Setter
+@Getter
+@Setter
 public class Address {
 
     String zipcode, city, street;

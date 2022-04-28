@@ -1,5 +1,6 @@
 package com.record.mcj.entity;
 
+import com.record.mcj.entity.user.User;
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
 

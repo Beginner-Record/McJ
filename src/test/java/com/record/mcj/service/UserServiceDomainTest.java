@@ -2,8 +2,7 @@ package com.record.mcj.service;
 
 import com.record.mcj.data.Address;
 import com.record.mcj.data.Role;
-import com.record.mcj.entity.User;
-import org.checkerframework.checker.units.qual.A;
+import com.record.mcj.entity.user.User;
 import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,8 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 
 import javax.persistence.EntityManager;
 import java.time.LocalDateTime;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 
 @SpringBootTest

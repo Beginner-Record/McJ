@@ -1,10 +1,9 @@
 package com.record.mcj.repository;
 
-import com.record.mcj.entity.User;
+import com.record.mcj.entity.user.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface UserRepository extends JpaRepository<User, Long> {
-
 
 
 }
