@@ -1,15 +1,16 @@
-package com.record.mcj.api;
+package com.record.mcj.api.user;
 
 
-import com.record.mcj.api.dto.UserDTO.UserCreateData;
-import com.record.mcj.api.dto.UserDTO.UserCreateRequest;
-import com.record.mcj.api.dto.UserDTO.UserCreateResponse;
-import com.record.mcj.service.UserServiceDomain;
+import com.record.mcj.api.user.dto.CreateUserDTO.UserCreateRequest;
+import com.record.mcj.api.user.dto.CreateUserDTO.UserCreateResponse;
+import com.record.mcj.service.user.UserServiceDomain;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import static com.record.mcj.api.user.dto.CreateUserDTO.UserCreateData.createUserCreateData;
 
 @RestController
 @RequestMapping("/user")
@@ -20,11 +21,8 @@ public class UserAPI {
 
     @PostMapping
     public UserCreateResponse createUser(@RequestBody UserCreateRequest userCreateRequest) {
-        System.out.println(userCreateRequest.getName());
+        System.out.println(userCreateRequest.name());
         return new UserCreateResponse(
-                new UserCreateData(userServiceDomain.create(userCreateRequest.toEntity())));
-
-
+                createUserCreateData(userServiceDomain.create(userCreateRequest.toEntity())));
     }
-
 }
