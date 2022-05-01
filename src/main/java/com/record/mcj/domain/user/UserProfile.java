@@ -1,4 +1,4 @@
-package com.record.mcj.entity.user;
+package com.record.mcj.domain.user;
 
 
 import lombok.AccessLevel;
@@ -33,6 +33,4 @@ public class UserProfile {
 
     @OneToMany(mappedBy = "userProfile")
     private List<UserEducation> userEducations = new ArrayList<>();
-
-
 }
