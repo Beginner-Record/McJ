@@ -1,8 +1,8 @@
-package com.record.mcj.entity.user;
+package com.record.mcj.domain.user;
 
 import com.record.mcj.data.Address;
 import com.record.mcj.data.Role;
-import com.record.mcj.entity.Board;
+import com.record.mcj.domain.board.Board;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -25,17 +25,13 @@ public class User {
     private Long id;
 
     private String name;
-
     private String email;
-
     private String password;
+    private LocalDateTime birthday;
+    private final LocalDateTime joinDate = LocalDateTime.now();
 
     @Embedded
     private Address address;
-
-    private LocalDateTime birthday;
-
-    private LocalDateTime joinDate;
 
     @Enumerated(EnumType.STRING)
     private Role role;
@@ -53,8 +49,6 @@ public class User {
         checkArgument(Strings.isNotBlank(password), "패스워드는 필수입니다.");
         checkArgument(birthday != null, "생년월일은 필수입니다.");
 
-
-        this.joinDate = LocalDateTime.now();
         this.name = name;
         this.email = email;
         this.password = password;
@@ -62,6 +56,4 @@ public class User {
         this.birthday = birthday;
         this.role = role;
     }
-
-
 }

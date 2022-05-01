@@ -1,6 +1,6 @@
-package com.record.mcj.api;
+package com.record.mcj.api.user;
 
-import com.record.mcj.api.dto.UserDTO.UserCreateRequest;
+import com.record.mcj.api.user.dto.CreateUserDTO.UserCreateRequest;
 import com.record.mcj.data.Address;
 import com.record.mcj.support.BaseApiTest;
 import org.junit.jupiter.api.Test;
@@ -18,9 +18,7 @@ class UserAPITest extends BaseApiTest {
     void 유저_생성() throws Exception {
         final LocalDateTime now = LocalDateTime.now();
         final Address address = new Address("A", "B", "C");
-
         final UserCreateRequest userCreateRequest = new UserCreateRequest("이름", "이멜", "pss", address, now);
-
 
         mockMvc.perform(post("/user")
                         .contentType(MediaType.APPLICATION_JSON)
@@ -32,10 +30,6 @@ class UserAPITest extends BaseApiTest {
                         jsonPath("$.user.password").value("pss"),
                         jsonPath("$.user.address.zipcode").value("A"),
                         jsonPath("$.user.birthday").value(now.toString()),
-                        jsonPath("$.user.role").value("user"));
-
-
+                        jsonPath("$.user.role").value("USER"));
     }
-
-
 }
