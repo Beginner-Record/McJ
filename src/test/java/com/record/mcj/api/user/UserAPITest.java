@@ -21,15 +21,15 @@ class UserAPITest extends BaseApiTest {
         final UserCreateRequest userCreateRequest = new UserCreateRequest("이름", "이멜", "pss", address, now);
 
         mockMvc.perform(post("/user")
-                        .contentType(MediaType.APPLICATION_JSON)
-                        .content(objectMapper.writeValueAsBytes(userCreateRequest)))
-                .andExpectAll(
-                        status().isOk(),
-                        jsonPath("$.user.name").value("이름"),
-                        jsonPath("$.user.email").value("이멜"),
-                        jsonPath("$.user.password").value("pss"),
-                        jsonPath("$.user.address.zipcode").value("A"),
-                        jsonPath("$.user.birthday").value(now.toString()),
-                        jsonPath("$.user.role").value("USER"));
+                .contentType(MediaType.APPLICATION_JSON)
+                .content(objectMapper.writeValueAsBytes(userCreateRequest)))
+            .andExpectAll(
+                status().isOk(),
+                jsonPath("$.user.name").value("이름"),
+                jsonPath("$.user.email").value("이멜"),
+                jsonPath("$.user.password").value("pss"),
+                jsonPath("$.user.address.zipcode").value("A"),
+                jsonPath("$.user.birthday").value(now.toString()),
+                jsonPath("$.user.role").value("USER"));
     }
 }
