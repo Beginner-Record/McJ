@@ -1,15 +1,12 @@
 package com.record.mcj.data;
 
-import lombok.Getter;
+import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
-import lombok.Setter;
 
 import javax.persistence.Embeddable;
 
 @Embeddable
-@NoArgsConstructor
-@Getter
-@Setter
+@NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Address {
 
     String zipcode, city, street;
@@ -19,4 +16,5 @@ public class Address {
         this.city = city;
         this.street = street;
     }
+
 }

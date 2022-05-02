@@ -2,17 +2,16 @@ package com.record.mcj.domain.user;
 
 import com.record.mcj.data.Address;
 import com.record.mcj.data.Role;
-import com.record.mcj.domain.board.Board;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import org.apache.logging.log4j.util.Strings;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
-import java.util.List;
+import java.time.OffsetDateTime;
 
 import static com.google.common.base.Preconditions.checkArgument;
+import static com.google.common.base.Preconditions.checkNotNull;
 
 @Entity
 @Getter
@@ -24,36 +23,47 @@ public class User {
     @Column(name = "user_id")
     private Long id;
 
-    private String name;
-    private String email;
+    /* 아이디 */
+    private String textId;
+
+    /* 비밀번호 */
     private String password;
-    private LocalDateTime birthday;
-    private final LocalDateTime joinDate = LocalDateTime.now();
 
-    @Embedded
-    private Address address;
+    /* 이메일 */
+    private String email;
 
+    /* 닉네임 */
+    private String nickName;
+
+    /* 주소 */
+    private Address Address;
+
+    /* 생일 */
+    private OffsetDateTime birthday;
+
+    /* 권한 */
     @Enumerated(EnumType.STRING)
     private Role role;
 
-    @OneToMany(mappedBy = "user")
-    private List<Board> boards;
+    /* 생성날짜 */
+    private final OffsetDateTime createAt = OffsetDateTime.now();
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_prifle_id")
-    private UserProfile userProfile;
 
-    public User(String name, String email, String password, Address address, LocalDateTime birthday, Role role) {
-        checkArgument(Strings.isNotBlank(name), "사용자 이름은 필수입니다.");
-        checkArgument(Strings.isNotBlank(email), "이메일은 필수입니다.");
-        checkArgument(Strings.isNotBlank(password), "패스워드는 필수입니다.");
-        checkArgument(birthday != null, "생년월일은 필수입니다.");
+    public User(String textId, String password, String email, String nickName, Address address, OffsetDateTime birthday, Role role) {
+        checkArgument(Strings.isNotBlank(textId), "아이디가 없으면 생성 불가");
+        checkArgument(Strings.isNotBlank(password), "비밀번호가 없으면 생성 불가");
+        checkArgument(Strings.isNotBlank(email), "이메일이 없으면 생성 불가");
+        checkNotNull(address, "주소가 없으면 생성 불가");
+        checkNotNull(birthday, "생일이 없으면 생성 불가");
+        checkNotNull(role, "권한이 없으면 생성 불가");
 
-        this.name = name;
-        this.email = email;
+        this.textId = textId;
         this.password = password;
-        this.address = address;
+        this.email = email;
+        this.nickName = nickName;
+        this.Address = address;
         this.birthday = birthday;
         this.role = role;
     }
+
 }
