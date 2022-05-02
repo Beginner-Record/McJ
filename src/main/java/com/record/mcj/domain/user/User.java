@@ -1,7 +1,6 @@
 package com.record.mcj.domain.user;
 
-import com.record.mcj.data.Address;
-import com.record.mcj.data.Role;
+import com.record.mcj.embed.Address;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -43,13 +42,13 @@ public class User {
 
     /* 권한 */
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private UserRole role;
 
     /* 생성날짜 */
     private final OffsetDateTime createAt = OffsetDateTime.now();
 
 
-    public User(String textId, String password, String email, String nickName, Address address, OffsetDateTime birthday, Role role) {
+    public User(String textId, String password, String email, String nickName, Address address, OffsetDateTime birthday, UserRole role) {
         checkArgument(Strings.isNotBlank(textId), "아이디가 없으면 생성 불가");
         checkArgument(Strings.isNotBlank(password), "비밀번호가 없으면 생성 불가");
         checkArgument(Strings.isNotBlank(email), "이메일이 없으면 생성 불가");
