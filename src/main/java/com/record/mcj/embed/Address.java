@@ -1,4 +1,4 @@
-package com.record.mcj.data;
+package com.record.mcj.embed;
 
 import lombok.AccessLevel;
 import lombok.NoArgsConstructor;
