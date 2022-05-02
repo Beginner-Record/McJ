@@ -1,21 +1,17 @@
 package com.record.mcj.domain.user;
 
-import com.record.mcj.data.Address;
-import com.record.mcj.data.Role;
-import org.junit.jupiter.api.Assertions;
+import com.record.mcj.fixture.UserFixture;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase;
-import org.springframework.boot.test.context.SpringBootTest;
-import org.springframework.transaction.annotation.Transactional;
-
-import java.time.LocalDateTime;
-import java.util.NoSuchElementException;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.springframework.boot.test.autoconfigure.jdbc.AutoConfigureTestDatabase.Replace.NONE;
 
-@SpringBootTest
+
+@DataJpaTest
 @AutoConfigureTestDatabase(replace = NONE)
 class UserRepositoryTest {
 
@@ -23,22 +19,12 @@ class UserRepositoryTest {
     private UserRepository userRepository;
 
     @Test
-    @Transactional
-    void 유저_생성_테스트() {
-        final User save = userRepository.save(new User("name", "email", "password", new Address("A", "B", "C"), LocalDateTime.now(), Role.USER));
+    void 유저_생성_성공() {
+        final User user = userRepository.save(UserFixture.userCreate());
 
-        final User user = userRepository.findById(save.getId()).orElseThrow();
+        final User findUser = userRepository.findById(user.getId()).orElseThrow();
 
-        assertThat(user.getId()).isNotNull();
+        assertThat(findUser.getId()).isNotNull();
     }
 
-    @Test
-    @Transactional
-    void 유저_삭제_테스트() {
-        final User save = userRepository.save(new User("name", "email", "password", new Address("A", "B", "C"), LocalDateTime.now(), Role.USER));
-
-        userRepository.delete(save);
-
-        Assertions.assertThrows(NoSuchElementException.class, () -> userRepository.findById(save.getId()).orElseThrow());
-    }
 }
