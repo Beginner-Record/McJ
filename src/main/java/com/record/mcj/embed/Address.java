@@ -9,7 +9,7 @@ import javax.persistence.Embeddable;
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Address {
 
-    String zipcode, city, street;
+    private String zipcode, city, street;
 
     public Address(String zipcode, String city, String street) {
         this.zipcode = zipcode;
