@@ -4,12 +4,19 @@ import com.record.mcj.domain.user.User;
 import com.record.mcj.domain.user.UserRepository;
 import com.record.mcj.fixture.UserFixture;
 import com.record.mcj.support.BaseServiceTest;
+<<<<<<< HEAD
 import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.junit.jupiter.api.Assertions.*;
+=======
+import org.junit.jupiter.api.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import static org.assertj.core.api.Assertions.assertThat;
+>>>>>>> origin/MCJ-13
 
 class DomainUserServiceTest extends BaseServiceTest {
 

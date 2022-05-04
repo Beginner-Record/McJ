@@ -9,4 +9,8 @@ public interface UserService {
      */
     User create(User user);
 
+<<<<<<< HEAD
 }
+=======
+}
+>>>>>>> origin/MCJ-13
