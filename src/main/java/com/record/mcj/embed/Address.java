@@ -1,20 +1,16 @@
 package com.record.mcj.embed;
 
-import lombok.AccessLevel;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import javax.persistence.Embeddable;
 
 @Embeddable
+@Getter
+@Setter
+@AllArgsConstructor
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Address {
 
     private String zipcode, city, street;
-
-    public Address(String zipcode, String city, String street) {
-        this.zipcode = zipcode;
-        this.city = city;
-        this.street = street;
-    }
 
 }
