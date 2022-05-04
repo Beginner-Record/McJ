@@ -9,11 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 @RequiredArgsConstructor
-<<<<<<< HEAD
 public class DomainUserService implements UserService{
-=======
-public class DomainUserService implements UserService {
->>>>>>> origin/MCJ-13
 
     private final UserRepository userRepository;
 
@@ -23,8 +19,4 @@ public class DomainUserService implements UserService {
         return userRepository.save(user);
     }
 
-<<<<<<< HEAD
 }
-=======
-}
->>>>>>> origin/MCJ-13
