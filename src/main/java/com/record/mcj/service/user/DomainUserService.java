@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class DomainUserService implements UserService{
+public class DomainUserService implements UserService {
 
     private final UserRepository userRepository;
 

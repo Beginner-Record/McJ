@@ -5,8 +5,8 @@ import com.record.mcj.domain.user.User;
 public interface UserService {
 
     /**
-    * 보스 생성
-    */
+     * 보스 생성
+     */
     User create(User user);
 
 }
