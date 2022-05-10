@@ -1,12 +1,13 @@
 spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ${db.url:jdbc:mysql://localhost:3306/mcj}
+    url: ${db.url:jdbc:mysql://localhost:3306/mcjtest}
     username: ${db.username:root}
     password: ${db.password:1234}
   jpa:
+    generate-ddl: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     properties:
       hibernate:
         format_sql: false
@@ -15,7 +16,5 @@ spring:
         persistence:
           validation:
             mode: none
-    show-sql: true
-
   flyway:
-    enabled: true
+    enabled: false
