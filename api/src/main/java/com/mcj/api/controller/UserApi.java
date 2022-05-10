@@ -2,7 +2,7 @@ package com.mcj.api.controller;
 
 
 import com.mcj.api.controller.dto.UserCreateDto.UserCreateRequest;
-import com.mcj.api.service.user.UserService;
+import com.mcj.core.user.service.UserService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;

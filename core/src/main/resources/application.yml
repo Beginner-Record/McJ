@@ -1,21 +1,21 @@
-spring:
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: ${db.url:jdbc:mysql://localhost:3306/mcj}
-    username: ${db.username:root}
-    password: ${db.password:1234}
-  jpa:
-    hibernate:
-      ddl-auto: update
-    properties:
-      hibernate:
-        format_sql: false
-        dialect: org.hibernate.dialect.MySQL8Dialect
-      javax:
-        persistence:
-          validation:
-            mode: none
-    show-sql: true
-
-  flyway:
-    enabled: true
+#spring:
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: ${db.url:jdbc:mysql://localhost:3306/mcj}
+#    username: ${db.username:root}
+#    password: ${db.password:1234}
+#  jpa:
+#    hibernate:
+#      ddl-auto: update
+#    properties:
+#      hibernate:
+#        format_sql: false
+#        dialect: org.hibernate.dialect.MySQL8Dialect
+#      javax:
+#        persistence:
+#          validation:
+#            mode: none
+#    show-sql: true
+#
+#  flyway:
+#    enabled: true
