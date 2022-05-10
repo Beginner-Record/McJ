@@ -4,44 +4,100 @@ plugins {
     id 'java'
 }
 
-group = 'com.record'
-version = '0.0.1-SNAPSHOT'
-sourceCompatibility = '16'
+subprojects {
+    group = 'com.record'
+    version = '0.0.1-SNAPSHOT'
+    sourceCompatibility = '16'
 
-configurations {
-    compileOnly {
-        extendsFrom annotationProcessor
+    apply plugin: 'java'
+    apply plugin: 'io.spring.dependency-management'
+    apply plugin: 'org.springframework.boot'
+
+
+    configurations {
+        compileOnly {
+            extendsFrom annotationProcessor
+        }
+    }
+
+    repositories {
+        mavenCentral()
+    }
+
+    dependencies {
+        implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
+        implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
+        implementation 'org.springframework.boot:spring-boot-starter-web'
+        implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
+        testImplementation 'org.springframework.boot:spring-boot-starter-test'
+
+        developmentOnly 'org.springframework.boot:spring-boot-devtools'
+        implementation 'com.google.guava:guava:31.1-jre'
+
+        runtimeOnly 'mysql:mysql-connector-java'
+        runtimeOnly 'com.h2database:h2'
+
+
+        compileOnly 'org.projectlombok:lombok'
+        annotationProcessor 'org.projectlombok:lombok'
+        testCompileOnly 'org.projectlombok:lombok'
+
+        //    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
+        //    implementation 'org.springframework.boot:spring-boot-starter-security'
+        //    testImplementation 'org.springframework.security:spring-security-test'
     }
 }
 
-repositories {
-    mavenCentral()
+project(":core"){
+    dependencies {
+    }
+    bootJar {
+        enabled = false
+    }
+
+    jar {
+        enabled = true
+    }
+
+    tasks.named('test') {
+        useJUnitPlatform()
+    }
 }
 
-dependencies {
-    implementation 'org.springframework.boot:spring-boot-starter-data-jdbc'
-    implementation 'org.springframework.boot:spring-boot-starter-data-jpa'
-    implementation 'org.springframework.boot:spring-boot-starter-web'
-    implementation 'org.springframework.boot:spring-boot-starter-thymeleaf'
-    testImplementation 'org.springframework.boot:spring-boot-starter-test'
 
-    developmentOnly 'org.springframework.boot:spring-boot-devtools'
-    implementation 'com.google.guava:guava:31.1-jre'
+project(":api"){
+    dependencies {
+        implementation ('org.flywaydb:flyway-core')
+        implementation(project(":core"))
+    }
+    bootJar {
+        enabled = true
+    }
 
-    runtimeOnly 'mysql:mysql-connector-java'
-    implementation 'org.flywaydb:flyway-core'
-    runtimeOnly 'com.h2database:h2'
+    jar {
+        enabled = true
+    }
 
-
-    compileOnly 'org.projectlombok:lombok'
-    annotationProcessor 'org.projectlombok:lombok'
-    testCompileOnly 'org.projectlombok:lombok'
-
-    //    implementation 'org.thymeleaf.extras:thymeleaf-extras-springsecurity5'
-    //    implementation 'org.springframework.boot:spring-boot-starter-security'
-    //    testImplementation 'org.springframework.security:spring-security-test'
+    tasks.named('test') {
+        useJUnitPlatform()
+    }
 }
 
-tasks.named('test') {
-    useJUnitPlatform()
+
+project(":admin"){
+    dependencies {
+        implementation(project(":core"))
+    }
+    bootJar {
+        enabled = true
+    }
+
+    jar {
+        enabled = true
+    }
+
+    tasks.named('test') {
+        useJUnitPlatform()
+    }
 }
+
