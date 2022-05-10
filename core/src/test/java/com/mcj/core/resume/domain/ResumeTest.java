@@ -1,6 +1,6 @@
-package com.mcj.core.domain.resume;
+package com.mcj.core.resume.domain;
 
-import com.mcj.core.domain.resume.Resume;
+import com.mcj.core.resume.domain.Resume;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.NullAndEmptySource;

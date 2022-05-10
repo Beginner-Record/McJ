@@ -1,7 +1,7 @@
 package com.mcj.core.fixture;
 
-import com.mcj.core.domain.user.User;
-import com.mcj.core.domain.user.UserRole;
+import com.mcj.core.user.domain.User;
+import com.mcj.core.user.domain.UserRole;
 import com.mcj.core.embed.Address;
 
 import java.time.OffsetDateTime;

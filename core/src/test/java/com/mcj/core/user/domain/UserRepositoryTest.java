@@ -1,5 +1,7 @@
-package com.mcj.core.domain.user;
+package com.mcj.core.user.domain;
 
+import com.mcj.core.user.domain.User;
+import com.mcj.core.user.domain.UserRepository;
 import com.mcj.core.fixture.UserFixture;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

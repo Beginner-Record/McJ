@@ -1,5 +1,6 @@
-package com.mcj.core.domain.resume;
+package com.mcj.core.career.domain;
 
+import com.mcj.core.resume.domain.Resume;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

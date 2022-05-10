@@ -1,7 +1,7 @@
-package com.mcj.api.service.user;
+package com.mcj.core.user.service;
 
-import com.mcj.core.domain.user.User;
-import com.mcj.core.domain.user.UserRepository;
+import com.mcj.core.user.domain.User;
+import com.mcj.core.user.domain.UserRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 @Service
 @Transactional
 @RequiredArgsConstructor
-public class DomainUserService implements UserService{
+public class DomainUserService implements UserService {
 
     private final UserRepository userRepository;
 

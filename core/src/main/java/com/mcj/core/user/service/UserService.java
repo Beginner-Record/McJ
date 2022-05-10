@@ -1,6 +1,6 @@
-package com.mcj.api.service.user;
+package com.mcj.core.user.service;
 
-import com.mcj.core.domain.user.User;
+import com.mcj.core.user.domain.User;
 
 public interface UserService {
 

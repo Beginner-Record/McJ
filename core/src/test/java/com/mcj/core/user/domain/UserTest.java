@@ -1,7 +1,7 @@
-package com.mcj.core.domain.user;
+package com.mcj.core.user.domain;
 
-import com.mcj.core.domain.user.User;
-import com.mcj.core.domain.user.UserRole;
+import com.mcj.core.user.domain.User;
+import com.mcj.core.user.domain.UserRole;
 import com.mcj.core.embed.Address;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;

@@ -1,4 +1,4 @@
-package com.mcj.core.domain.user;
+package com.mcj.core.user.domain;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
