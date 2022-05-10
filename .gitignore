@@ -12,11 +12,13 @@
 # BlueJ files
 *.ctxt
 
-# Mobile Tools for Java (J2ME)
+
 .mtj.tmp/
 .idea/
-.gradle/
-.build/
+.gradle
+build/
+gradle/wrapper/gradle-wrapper.properties
+gradle/wrapper/gradle-wrapper.jar
 
 
 # Package Files #
